@@ -1,17 +1,12 @@
 from odoo import api, fields, models
-import calendar
-
 
 class MonthMaster(models.Model):
     _name = 'month.master'
     _description = 'Month Master Table'
-    _rec_name = 'month' 
-
-
-    @api.model
+    
+    # Generate a list of months
     def _get_months(self):
-        # Using calendar to get month names
-        month_list = [(str(i), calendar.month_name[i]) for i in range(1, 13)]
+        month_list = [(str(num), str(num)) for num in range(1, 13)]
         return month_list
 
     month = fields.Selection(
@@ -21,4 +16,5 @@ class MonthMaster(models.Model):
         index=True,
         unique=True
     )
+
     order = fields.Integer(string='Order', required=True)
