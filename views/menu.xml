@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="main_menu"
+        name="Main Menu"
+        sequence="10"/>
+
+        <menuitem
+        id="project_master_submenu"
+        name="Project Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="employee_master_submenu"
+        name="Employee Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="department_master_submenu"
+        name="Department Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="employee_class_master_submenu"
+        name="Employee Class Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="year_master_submenu"
+        name="Year Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="month_master_submenu"
+        name="Month Master"
+        parent= "main_menu"
+        sequence="10"/>
+
+        <menuitem
+        id="project_employee_master_submenu"
+        name="Project Employee"
+        parent= "main_menu"
+        sequence="10"/>
+        
+</odoo>

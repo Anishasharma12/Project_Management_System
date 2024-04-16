@@ -1,0 +1,12 @@
+.o_list_view .o_list_record_selector input {
+    display: none !important;
+}
+.o_list_renderer .o_list_table > thead > tr > :first-child, .o_list_renderer .o_list_table > tbody > tr > :first-child, .o_list_renderer .o_list_table > tfoot > tr > :first-child 
+{
+    padding-left: var(--ListRenderer-table-padding-x);
+    display: none !important; 
+}
+#edit_btn
+{
+    background-color: blue($color: #000000);
+}

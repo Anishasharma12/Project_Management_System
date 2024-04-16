@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_employee_master_form" model="ir.ui.view">
+    <field name="name">employee.master.form</field>
+    <field name="model">employee.master</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="code"/>
+            <field name="department_code"/>
+            <field name="class_code"/>
+            <field name="delete_flag"/>
+            <field name="description"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_employee_master_tree" model="ir.ui.view">
+    <field name="name">employee.master.tree</field>
+    <field name="model">employee.master</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="code"/>
+        <field name="department_code"/>
+        <field name="class_code"/>
+        <field name="delete_flag"/>
+        <field name="description"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_employee_master_submenu" model="ir.actions.act_window">
+    <field name="name">Employee Master</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">employee.master</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="employee_master_submenu"
+        name="Employee Master"
+        parent= "main_menu"
+        action= "action_employee_master_submenu"
+        sequence="10"/>
+
+</odoo>

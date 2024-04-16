@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+
+            <record id="wb_projectemployeemaster_tree_view" model="ir.ui.view">
+                <field name="name">wb.projectemployeemaster.tree.view</field>
+                <field name="model">wb.projectemployeemaster</field>
+                <field name="arch" type="xml">
+                    <tree>
+                        <field name="id" />           
+                        <field name="project_code" required="1"/> 
+                        <field name="employee_code" required="1"/> 
+                        <field name="year" required="1"/> 
+                        <field name="month" required="1"/> 
+                        <field name="op_hours_planned" required="1"/> 
+                        <field name="op_hours_actual" required="1"/> 
+                    </tree>
+                </field>
+            </record>
+            <record id="wb_projectemployeemaster_form_view" model="ir.ui.view">
+                <field name="name">wb.projectemployeemaster.tree.view</field>
+                <field name="model">wb.projectemployeemaster</field>
+                <field name="arch" type="xml">
+                    <form string="Project">
+                    <sheet>
+                        <group>
+                        <field name="id" />           
+                        <field name="project_code" required="1"/> 
+                        <field name="employee_code" required="1"/> 
+                        <field name="year" widget="selection" options="{'no_open': True}"/>
+                        <field name="month" required="1"/> 
+                        <field name="op_hours_planned" required="1"/> 
+                        <field name="op_hours_actual" required="1"/> 
+                        </group>
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+            <record id="action_project_employee_master_submenu" model="ir.actions.act_window">
+                <field name="name">Project Employee Master</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">wb.projectemployeemaster</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+            <menuitem id="project_employee_master_submenu"
+            name="Project Employee"
+            parent="main_menu"
+            action="action_project_employee_master_submenu"
+            sequence="20"/>
+
+</odoo>

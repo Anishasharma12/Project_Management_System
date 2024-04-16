@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_month_master_form" model="ir.ui.view">
+    <field name="name">month.master.form</field>
+    <field name="model">month.master</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="month"/>
+            <field name="order"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_month_master_tree" model="ir.ui.view">
+    <field name="name">month.master.tree</field>
+    <field name="model">month.master</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="month"/>
+        <field name="order"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_month_master_submenu" model="ir.actions.act_window">
+    <field name="name">Month Master</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">month.master</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="month_master_submenu"
+            name="Month Master"
+            parent="main_menu"
+            action="action_month_master_submenu"
+            sequence="20"/>
+
+</odoo>

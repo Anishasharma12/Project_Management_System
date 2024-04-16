@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_year_master_form" model="ir.ui.view">
+    <field name="name">year.master.form</field>
+    <field name="model">year.master</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="year" placeholder="Enter a year (e.g., 2023)"/>
+            <field name="order"/>
+            <field name="default_flag"/>
+            <field name="delete_flag"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_year_master_tree" model="ir.ui.view">
+    <field name="name">year.master.tree</field>
+    <field name="model">year.master</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="year"/>
+        <field name="order"/>
+        <field name="default_flag"/>
+        <field name="delete_flag"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_year_master_submenu" model="ir.actions.act_window">
+    <field name="name">Year Master</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">year.master</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="year_master_submenu"
+        name="Year Master"
+        parent= "main_menu"
+        action= "action_year_master_submenu"
+        sequence="10"/>
+
+</odoo>
