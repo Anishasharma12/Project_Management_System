@@ -6,6 +6,7 @@ class EmployeeMaster(models.Model):
     _description = 'Employee Master Table'
     _rec_name = 'code' 
 
+    
     code = fields.Integer(string='Code', required=True, index=True, unique=True)
     name = fields.Char(string='Name', required=True)
     department_code = fields.Many2one('department.master', string='Department Code', required=True)

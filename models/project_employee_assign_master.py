@@ -36,5 +36,5 @@ class ProjectEmployeeAssignMaster(models.Model):
         help="Select month",
         index=True
     )
-    op_hours_planned=fields.Integer("OP hours Planned")
-    op_hours_actual=fields.Integer("OP hours Actual")
+    op_hours_planned=fields.Char("OP hours Planned")
+    op_hours_actual=fields.Char("OP hours Actual")

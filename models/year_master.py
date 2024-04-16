@@ -7,6 +7,7 @@ class YearMaster(models.Model):
     _description = 'Year Master Table'
     _rec_name = 'year'  # Set the representative field to 'code'
 
+    
     # Generate a list of years for selection
     def _get_years(self):
         year_list = [(str(num), str(num)) for num in range(1900, 2101)]  # Adjust the range as needed
