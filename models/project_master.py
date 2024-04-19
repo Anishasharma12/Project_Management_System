@@ -9,8 +9,9 @@ class ProjectMaster(models.Model):
     name = fields.Char(string='Name', required=True)
     order = fields.Integer(string='Order', required=True)
     delete_flag = fields.Boolean(string='Delete Flag', default=False)
-    description = fields.Text(string='Description')
+    description = fields.Text(string='Description', required=True)
 
+# Code should be unique , so here defining code is unique using sql constrain
     _sql_constraints = [
         ('code_unique', 'UNIQUE(code)', "The code must be unique across all project master records."),
     ]

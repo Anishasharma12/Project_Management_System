@@ -8,8 +8,8 @@
       <form>
         <sheet>
           <group>
-            <field name="name"/>
             <field name="code"/>
+            <field name="name"/>
             <field name="unit_price"/>
             <field name="delete_flag"/>
             <field name="description"/>
@@ -24,8 +24,9 @@
     <field name="model">employee.class.master</field>
     <field name="arch" type="xml">
       <tree>
-        <field name="name"/>
         <field name="code"/>
+        <field name="name"/>
+        <!-- <field name="code"/> -->
         <field name="unit_price"/>
         <field name="delete_flag"/>
         <field name="description"/>
