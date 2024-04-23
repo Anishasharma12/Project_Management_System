@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
 
-            <record id="wb_projectemployeemaster_tree_view" model="ir.ui.view">
+            <record id="wb_project_employee_master_tree_view" model="ir.ui.view">
                 <field name="name">wb.projectemployeemaster.tree.view</field>
                 <field name="model">wb.projectemployeemaster</field>
                 <field name="arch" type="xml">
@@ -16,7 +16,7 @@
                     </tree>
                 </field>
             </record>
-            <record id="wb_projectemployeemaster_form_view" model="ir.ui.view">
+            <record id="wb_project_employee_master_form_view" model="ir.ui.view">
                 <field name="name">wb.projectemployeemaster.tree.view</field>
                 <field name="model">wb.projectemployeemaster</field>
                 <field name="arch" type="xml">
@@ -40,6 +40,13 @@
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">wb.projectemployeemaster</field>
                 <field name="view_mode">tree,form</field>
+                <field name="view_id"/>
+                <field name="context">{}</field>
+                <field name="help" type="html">
+                    <p class="o_view_nocontent_smiling_face">
+                        No purchase order were made for this product yet!
+                    </p>
+                </field>
             </record>
             <menuitem id="project_employee_master_submenu"
             name="Project Employee"

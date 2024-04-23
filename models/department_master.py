@@ -23,4 +23,10 @@ class DepartmentMaster(models.Model):
         # Assuming 'name' is the code that was entered in the Many2one field
         record = self.create({'code': name, 'name': 'Department {}'.format(name)})
         return record.name_get()
-
+    
+def search(self, args, offset=0, limit=None, order=None, count=False):
+    records = super(department.master, self).search(args, offset=offset, limit=limit, order=order, count=count)
+    if not records:
+        # No records found, set a flag or message
+        self.no_record_found = True
+    return records
