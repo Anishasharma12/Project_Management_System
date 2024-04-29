@@ -13,5 +13,6 @@
         'views/year_master.xml',
         'views/month_master.xml',
         "views/project_employee_assign_master.xml",
+        "views/project_list_view.xml",
     ],
 }

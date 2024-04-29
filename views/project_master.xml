@@ -35,7 +35,6 @@
     </field>
   </record>
 
-
   <record id="action_project_master_submenu" model="ir.actions.act_window">
     <field name="name">Project Master</field>
     <field name="type">ir.actions.act_window</field>

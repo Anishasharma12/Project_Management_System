@@ -4,6 +4,7 @@ from odoo.exceptions import ValidationError
 class EmployeeMaster(models.Model):
     _name = 'employee.master'
     _description = 'Employee Master Table'
+    _rec_name = 'code' 
 
     code = fields.Integer(string='Code', required=True, index=True, unique=True , help='Code must be Unique')
     name = fields.Char(string='Name', required=True)

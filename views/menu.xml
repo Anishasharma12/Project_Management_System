@@ -2,7 +2,7 @@
 <odoo>
     <menuitem
         id="main_menu"
-        name="Main Menu"
+        name="Main"
         sequence="10"/>
 
         <menuitem
