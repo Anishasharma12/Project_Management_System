@@ -7,4 +7,8 @@ year_master,year_master,model_year_master,base.group_user,1,1,1,1
 month_master,master_master,model_month_master,base.group_user,1,1,1,1
 access_wb_projectemployeemaster,wb.projectemployeemaster,model_wb_projectemployeemaster,base.group_user,1,1,1,1
 access_wb_project_listview,wb.project_listview,model_wb_project_listview,base.group_user,1,1,1,1
+access_project_list_per_month,project_list_per_month,model_project_list_per_month,base.group_user,1,1,1,1
+
+
+
 

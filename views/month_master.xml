@@ -21,6 +21,7 @@
     <field name="model">month.master</field>
     <field name="arch" type="xml">
       <tree>
+        <field name="id"/>
         <field name="month"/>
         <field name="order"/>
       </tree>

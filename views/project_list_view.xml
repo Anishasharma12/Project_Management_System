@@ -6,20 +6,21 @@
     <field name="res_model">wb.project_listview</field>
     <field name="view_mode">tree,form</field>
   </record>
-    <record id="wb_project_employee_master_tree_view" model="ir.ui.view">
+            <record id="wb_project_employee_master_tree_view" model="ir.ui.view">
                 <field name="name">wb.project_listview.tree.view</field>
                 <field name="model">wb.project_listview</field>
                 <field name="arch" type="xml">
                     <tree>
-                        <field name="project_id" invisible="1" />   
-                        <button name="action_edit" type="object" string="Edit" />
-                        <button name="action_details" type="object" string="Summery" />  
-                        <field name="code" required="1"/> 
-                        <field name="name" required="1"/> 
-                        <field name="op_planned_hours" required="1"/> 
-                        <field name="op_actual_hours" required="1"/> 
-                        <field name="planned_cost" required="1"/> 
-                        <field name="actual_cost" required="1"/> 
+                        <field name="project_id" />
+                        <button name="action_edit" type="object" string="Edit"/>
+                        <!-- <field name="summery" widget="url" options="{'url': 'action_open_another_model_form'}"/> -->
+                        <button string="Summery" type="object" name="action_open_another_model_form" class="oe_highlight"/>
+                        <field name="code"/> 
+                        <field name="name"/> 
+                        <field name="op_planned_hours"/> 
+                        <field name="op_actual_hours"/> 
+                        <field name="planned_cost"/> 
+                        <field name="actual_cost"/> 
                     </tree>
                 </field>
             </record>
@@ -33,6 +34,10 @@
                             <field name="project_id" />           
                             <field name="code" required="1"/> 
                             <field name="name" required="1"/> 
+                            <field name="op_planned_hours"/> 
+                            <field name="op_actual_hours"/> 
+                            <field name="planned_cost"/> 
+                            <field name="actual_cost"/> 
                         </group>
                     </sheet>
                     </form>
