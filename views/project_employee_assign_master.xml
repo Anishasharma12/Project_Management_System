@@ -35,23 +35,4 @@
                     </form>
                 </field>
             </record>
-            <record id="action_project_employee_master_submenu" model="ir.actions.act_window">
-                <field name="name">Project Employee Master</field>
-                <field name="type">ir.actions.act_window</field>
-                <field name="res_model">wb.projectemployeemaster</field>
-                <field name="view_mode">tree,form</field>
-                <field name="view_id"/>
-                <field name="context">{}</field>
-                <field name="help" type="html">
-                    <p class="o_view_nocontent_smiling_face">
-                        No purchase order were made for this product yet!
-                    </p>
-                </field>
-            </record>
-            <menuitem id="project_employee_master_submenu"
-            name="Project Employee"
-            parent="main_menu"
-            action="action_project_employee_master_submenu"
-            sequence="20"/>
-
 </odoo>

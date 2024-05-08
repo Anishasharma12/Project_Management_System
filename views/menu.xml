@@ -1,50 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <record id="action_department_master_submenu" model="ir.actions.act_window">
+        <field name="name">Department Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">department.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_employee_class_master_submenu" model="ir.actions.act_window">
+        <field name="name">Employee Class Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.class.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_employee_master_submenu" model="ir.actions.act_window">
+        <field name="name">Employee Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_month_master_submenu" model="ir.actions.act_window">
+        <field name="name">Month Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">month.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_project_master_submenu" model="ir.actions.act_window">
+        <field name="name">Project Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_year_master_submenu" model="ir.actions.act_window">
+        <field name="name">Year Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">year.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_project_employee_master_submenu" model="ir.actions.act_window">
+        <field name="name">Project Employee Master</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wb.projectemployeemaster</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No purchase order were made for this product yet!
+            </p>
+        </field>
+    </record>
+
+    <record id="action_project_list_view" model="ir.actions.act_window">
+        <field name="name">Project List View</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wb.project_listview</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem
         id="main_menu"
-        name="Main"
-        sequence="10"/>
+        name="Project Management System"
+        sequence="1"/>
 
-        <menuitem
-        id="project_master_submenu"
+    <menuitem name="Project Master" id="menu_master_project" parent="main_menu" sequence="2" />
+    
+    <menuitem id="project_list_view"
+        name="Project List View"
+        parent="menu_master_project"
+        action= "action_project_list_view"
+        sequence="3"/>
+
+    <menuitem id="project_master_submenu"
         name="Project Master"
-        parent= "main_menu"
-        sequence="10"/>
+        parent= "menu_master_project"
+        action= "action_project_master_submenu"
+        sequence="4"/>
 
-        <menuitem
-        id="employee_master_submenu"
-        name="Employee Master"
-        parent= "main_menu"
-        sequence="10"/>
+    <menuitem id="department_master_submenu"
+            name="Department Master"
+            parent= "main_menu"
+            action= "action_department_master_submenu"
+            sequence="3"/>
 
-        <menuitem
-        id="department_master_submenu"
-        name="Department Master"
-        parent= "main_menu"
-        sequence="10"/>
-
-        <menuitem
-        id="employee_class_master_submenu"
+    <menuitem name="Employee" id="menu_master_employee" parent="main_menu" sequence="4" />
+    
+    <menuitem id="employee_class_master_submenu"
         name="Employee Class Master"
-        parent= "main_menu"
-        sequence="10"/>
+        parent= "menu_master_employee"
+        action= "action_employee_class_master_submenu"
+        sequence="4"/>
 
-        <menuitem
-        id="year_master_submenu"
-        name="Year Master"
-        parent= "main_menu"
-        sequence="10"/>
-
-        <menuitem
-        id="month_master_submenu"
-        name="Month Master"
-        parent= "main_menu"
-        sequence="10"/>
-
-        <menuitem
-        id="project_employee_master_submenu"
+    <menuitem id="employee_master_submenu"
+        name="Employee Master"
+        parent= "menu_master_employee"
+        action= "action_employee_master_submenu"
+        sequence="5"/>
+    
+    <menuitem id="project_employee_master_submenu"
         name="Project Employee"
-        parent= "main_menu"
-        sequence="10"/>
-        
+        parent="menu_master_employee"
+        action="action_project_employee_master_submenu"
+        sequence="20"/>
+
+    <menuitem name="Calendar" id="menu_master_calendar" parent="main_menu" sequence="6" />
+
+    <menuitem id="year_master_submenu"
+        name="Year Master"
+        parent= "menu_master_calendar"
+        action= "action_year_master_submenu"
+        sequence="7"/>
+
+    <menuitem id="month_master_submenu"
+        name="Month Master"
+        parent="menu_master_calendar"
+        action="action_month_master_submenu"
+        sequence="8"/>
 </odoo>
