@@ -15,31 +15,12 @@
                 <field name="arch" type="xml">
                     <tree>
                         <field name="id" />
-                         <field name="month_id" />
-                         <field name="month" />
+                        <field name="month_master_data"/>
                         <field name="op_planned_hours" />
                         <field name="op_actual_hours" />
                         <field name="planned_cost" />
                         <field name="actual_cost" />
                     </tree>
-                </field>
-            </record>
-            <record id="project_list_per_month_form_view" model="ir.ui.view">
-                <field name="name">project_list_per_month.form.view</field>
-                <field name="model">project_list_per_month</field>
-                <field name="arch" type="xml">
-                    <form string="Project">
-                    <sheet>
-                        <group>
-                            <field name="month_id" /> 
-                            <field name="month" />
-                            <field name="op_planned_hours" />
-                            <field name="op_actual_hours" />
-                            <field name="planned_cost" />
-                            <field name="actual_cost" />
-                        </group>
-                    </sheet>
-                    </form>
                 </field>
             </record>
     
