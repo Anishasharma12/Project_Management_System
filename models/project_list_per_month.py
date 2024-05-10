@@ -10,12 +10,18 @@ class ProjectsPerMonth(models.Model):
  # Assuming the project.master has fields 'name' and 'code'
     id = fields.Integer("id")
    #  name = fields.Char("name", compute = '_compute_month')
-    month_id = fields.Many2one('month.master', string='Month id'   )
-    month = fields.Selection(related='month_id.month', string='Month', required=True, store=True,)
-    op_planned_hours = fields.Integer(string='Unit Price', store=True)
-    op_actual_hours = fields.Integer(string='op actual hours', default=False, store=True)
-    planned_cost = fields.Float(string='planned cost', store=True)
-    actual_cost = fields.Float(string='actual cost', store=True)
+    employee_relation = fields.Many2one('wb.projectemployeemaster', ondelete="set null", string="employee_relation") 
+    # month_id = fields.Many2one('month.master', string='Month id')
+    project_code = fields.Integer(related='employee_relation.project_code.code', string='code')
+    month = fields.Many2one(
+        'month.master',
+        string="Month",
+        help="Select month",
+    )
+    op_planned_hours = fields.Integer(string='Unit Price')
+    op_actual_hours = fields.Integer(string='op actual hours')
+    planned_cost = fields.Float(string='planned cost')
+    actual_cost = fields.Float(string='actual cost')
 
 # this _compute_actual_hours is for function of planned hours
    #  @api.depends('id')  # Method depends on these fields

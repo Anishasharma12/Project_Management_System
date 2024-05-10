@@ -15,7 +15,7 @@
                 <field name="arch" type="xml">
                     <tree>
                         <field name="id" />
-                         <field name="month_id" />
+                         <!-- <field name="month_id" /> -->
                          <field name="month" />
                         <field name="op_planned_hours" />
                         <field name="op_actual_hours" />
@@ -31,7 +31,7 @@
                     <form string="Project">
                     <sheet>
                         <group>
-                            <field name="month_id" /> 
+                            <!-- <field name="month_id" />  -->
                             <field name="month" />
                             <field name="op_planned_hours" />
                             <field name="op_actual_hours" />

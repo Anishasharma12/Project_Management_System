@@ -12,6 +12,6 @@ class ProjectMaster(models.Model):
     description = fields.Text(string='Description', required=True)
 
 # Code should be unique , so here defining code is unique using sql constrain
-    _sql_constraints = [
-        ('code_unique', 'UNIQUE(code)', "The code must be unique across all project master records."),
-    ]
+    # _sql_constraints = [
+    #     ('code_unique', 'UNIQUE(code)', "The code must be unique across all project master records."),
+    # ]

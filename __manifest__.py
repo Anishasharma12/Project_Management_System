@@ -3,6 +3,8 @@
     'sequence': 1,
     'author': 'Creation Software and IT Solutions',
     'summary': 'Project Management for CSI Solutions',
+    'application': True,
+    'installable': True,
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',

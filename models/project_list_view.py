@@ -8,15 +8,15 @@ class ProjectListView(models.Model):
         
  # Assuming the project.master has fields 'name' and 'code'
     project_id = fields.Many2one('project.master', string='Project')
-    name = fields.Char(related='project_id.name', string='Project Name', required=True,  store=True)
-    code = fields.Integer(related='project_id.code', string='Project Code',   required=True, store=True)
-    edit = fields.Char(string=' edit')
-    summery = fields.Char(string='Summery ')
-    project_name = fields.Char(string='Name',  store=True)
-    op_planned_hours = fields.Integer(string='Unit Price', compute='_compute_planned_hours',  store=True)
-    op_actual_hours = fields.Integer(string='', default=False, compute='_compute_actual_hours',  store=True)
-    planned_cost = fields.Float(string='planned cost',compute='_compute_planned_cost',  store=True)
-    actual_cost = fields.Float(string='actual cost', compute='_compute_actual_cost',  store=True)
+    name = fields.Char(related='project_id.name', string='Project Name')
+    code = fields.Integer(related='project_id.code', string='Project Code')
+    # edit = fields.Char(string=' edit')
+    # summery = fields.Char(string='Summery ')
+    project_name = fields.Char(string='Name')
+    op_planned_hours = fields.Integer(string='Unit Price', compute='_compute_planned_hours')
+    op_actual_hours = fields.Integer(string='', compute='_compute_actual_hours')
+    planned_cost = fields.Float(string='planned cost',compute='_compute_planned_cost')
+    actual_cost = fields.Float(string='actual cost', compute='_compute_actual_cost')
 
 # this _compute_planned_hours is for function of planned hours
     @api.depends('code')  # Method depends on these fields
@@ -56,13 +56,15 @@ class ProjectListView(models.Model):
         # view_id = self.env.ref('Project_Management.project_list_per_month_form_view').id
 
     def action_open_another_model_form(self):
-        self.ensure_one()  # Ensures that the method is called on a single record
+        # self.ensure_one()  # Ensures that the method is called on a single record
         return  {
             'type': 'ir.actions.act_window',
             'name': _('Project List per Month'),
             'view_mode': 'tree,form',
             'res_model': 'project_list_per_month',  # Specify the target model
             'res_id': self.id,  # Pass the current record's ID
+            'domain': [('project_code', '=', self.code)],
+            # 'domain': [("self.env['project_list_per_month'].project_code.code", '=', self.code)],
             'target': 'new',  # Open in current window, use 'new' for a new window
         }
    
