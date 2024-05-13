@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="wb_project_employee_master_tree_view" model="ir.ui.view">
-        <field name="name">wb.projectemployeemaster.tree.view</field>
-        <field name="model">wb.projectemployeemaster</field>
+    <record id="project_employee_assign_master_tree_view" model="ir.ui.view">
+        <field name="name">project.employee.assign.master.tree.view</field>
+        <field name="model">project.employee.assign.master</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="id" />           
-                <field name="project_code" required="1"/> 
-                <field name="employee_code" required="1"/> 
-                <field name="year" required="1"/> 
-                <field name="month" required="1"/> 
-                <field name="op_hours_planned" required="1"/> 
-                <field name="op_hours_actual" required="1"/> 
-                <field name="employee_project_per_month" invisible="1"/>
+                <field name="project_code"/> 
+                <field name="employee_code"/> 
+                <field name="year"/> 
+                <field name="month"/> 
+                <field name="op_hours_planned"/> 
+                <field name="op_hours_actual"/> 
+                <!-- <field name="employee_project_per_month" invisible="1"/> -->
             </tree>
         </field>
     </record>
-    <record id="wb_project_employee_master_form_view" model="ir.ui.view">
-        <field name="name">wb.projectemployeemaster.form.view</field>
-        <field name="model">wb.projectemployeemaster</field>
+    <record id="project_employee_assign_master_form_view" model="ir.ui.view">
+        <field name="name">project.employee.assign.master.form.view</field>
+        <field name="model">project.employee.assign.master</field>
         <field name="arch" type="xml">
             <form string="Project">
             <sheet>
@@ -31,7 +31,7 @@
                 <field name="month" required="1"/> 
                 <field name="op_hours_planned" required="1"/> 
                 <field name="op_hours_actual" required="1"/> 
-                <field name="employee_project_per_month" invisible="1"/>
+                <!-- <field name="employee_project_per_month" invisible="1"/> -->
                 </group>
             </sheet>
             </form>

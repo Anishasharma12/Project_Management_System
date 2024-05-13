@@ -56,16 +56,15 @@ class ProjectListView(models.Model):
         # view_id = self.env.ref('Project_Management.project_list_per_month_form_view').id
 
     def action_open_another_model_form(self):
-        # self.ensure_one()  # Ensures that the method is called on a single record
         return  {
             'type': 'ir.actions.act_window',
             'name': _('Project List per Month'),
             'view_mode': 'tree,form',
-            'res_model': 'project_list_per_month',  # Specify the target model
-            'res_id': self.id,  # Pass the current record's ID
+            'res_model': 'project_list_per_month',
+            'res_id': self.id,
             'domain': [('project_code', '=', self.code)],
-            # 'domain': [("self.env['project_list_per_month'].project_code.code", '=', self.code)],
-            'target': 'new',  # Open in current window, use 'new' for a new window
+            'target': 'new',
+            'context': {'create': False},
         }
    
     # def action_view_invoice(self):
