@@ -15,5 +15,7 @@
         "views/project_employee_assign_master.xml",
         "views/project_list_view.xml",
         "views/project_list_per_month.xml",
+        "views/project_list_per_month_employee_view.xml",
+        "views/employee_assign_per_month.xml",
     ],
 }

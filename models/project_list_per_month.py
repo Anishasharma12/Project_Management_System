@@ -9,9 +9,8 @@ class ProjectsPerMonth(models.Model):
     
  # Assuming the project.master has fields 'name' and 'code'
     id = fields.Integer("id")
-   #  name = fields.Char("name", compute = '_compute_month')
-    month_id = fields.Many2one('month.master', string='Month id'   )
-    month = fields.Selection(related='month_id.month', string='Month', required=True, store=True,)
+    month_id = fields.Many2one('month.master', string='Month id')
+    month = fields.Selection(related='month_id.month', string='Month', required=True, store=True)
     op_planned_hours = fields.Integer(string='Unit Price', store=True)
     op_actual_hours = fields.Integer(string='op actual hours', default=False, store=True)
     planned_cost = fields.Float(string='planned cost', store=True)

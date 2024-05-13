@@ -7,16 +7,44 @@ class ProjectListView(models.Model):
     _description = 'Project List View'
         
  # Assuming the project.master has fields 'name' and 'code'
-    project_id = fields.Many2one('project.master', string='Project')
-    name = fields.Char(related='project_id.name', string='Project Name', required=True,  store=True)
-    code = fields.Integer(related='project_id.code', string='Project Code',   required=True, store=True)
+    # project_id = fields.Many2one('project.master', string='Project')
+    # name = fields.Char(related='project_id.name', string='Project Name', required=True,  store=True)
+    # code = fields.Integer(related='project_id.code', string='Project Code',   required=True, store=True)
+   
+    id = fields.Integer(string='ID')  # This is your logical link
+    name = fields.Char(string=' Name', )
+    code = fields.Char(string=' code',)
+   
     edit = fields.Char(string=' edit')
     summery = fields.Char(string='Summery ')
-    project_name = fields.Char(string='Name',  store=True)
+    # project_name = fields.Char(string='Project Name',  store=True)
+    project_info = fields.Char(string='code    Name', compute='_compute_project_info')
     op_planned_hours = fields.Integer(string='Unit Price', compute='_compute_planned_hours',  store=True)
     op_actual_hours = fields.Integer(string='', default=False, compute='_compute_actual_hours',  store=True)
     planned_cost = fields.Float(string='planned cost',compute='_compute_planned_cost',  store=True)
     actual_cost = fields.Float(string='actual cost', compute='_compute_actual_cost',  store=True)
+
+    @api.model
+    def _compute_project_info(self):
+        # Assuming we're showing info from the first record as an example
+        # This is just an example and might not fit all use cases
+        project_record = self.env['project.master'].search([], limit=1)
+        if project_record:
+            for rec in self:
+                rec.project_info = f" {project_record.code}, name: {project_record.name}"
+        else:
+            for rec in self:
+                rec.project_info = "No Project Data Available"
+        # for record in self:
+        #     month = self.env['project.master'].search([('id', '=', record.id)])
+        #     record.name = month.name if month else 'N/A'
+
+    @api.model
+    def _compute_code(self):
+        for record in self:
+            record.code = 'N/A'
+
+            
 
 # this _compute_planned_hours is for function of planned hours
     @api.depends('code')  # Method depends on these fields

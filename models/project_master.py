@@ -5,6 +5,7 @@ class ProjectMaster(models.Model):
     _description = "Project Master Table"
     _rec_name = 'code'  # Set the representative field to 'code'
 
+    id = fields.Integer(string='ID')  # This is your logical link
     code = fields.Integer(string='Code', required=True, index=True, unique=True, help='Code must be Unique')
     name = fields.Char(string='Name', required=True)
     order = fields.Integer(string='Order', required=True)

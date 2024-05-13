@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_list_per_month_employee_view_id" model="ir.actions.act_window">
+            <field name="name">Open Another Model Form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="res_model">project_list_per_month_employee_view</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="project_list_per_month_employee_tree_view" model="ir.ui.view">
+                <field name="name">project_list_per_month_employee_view.tree.view</field>
+                <field name="model">project_list_per_month_employee_view</field>
+                <field name="arch" type="xml">
+                    <tree>
+                         <field name="employee_name" />
+                        <field name="op_planned_hours" />
+                        <field name="op_actual_hours" />
+                        <field name="planned_cost" />
+                        <field name="actual_cost" />
+                    </tree>
+                </field>
+            </record>
+    </data>
+</odoo>
