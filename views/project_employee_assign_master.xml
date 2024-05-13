@@ -13,7 +13,7 @@
                 <field name="month" required="1"/> 
                 <field name="op_hours_planned" required="1"/> 
                 <field name="op_hours_actual" required="1"/> 
-                <field name="employee_project_per_month" invisible="1"/>
+                <!-- <field name="employee_project_per_month" invisible="1"/> -->
             </tree>
         </field>
     </record>
@@ -31,7 +31,7 @@
                 <field name="month" required="1"/> 
                 <field name="op_hours_planned" required="1"/> 
                 <field name="op_hours_actual" required="1"/> 
-                <field name="employee_project_per_month" invisible="1"/>
+                <!-- <field name="employee_project_per_month" invisible="1"/> -->
                 </group>
             </sheet>
             </form>
