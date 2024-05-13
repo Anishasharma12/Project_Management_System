@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="project_list_per_month_employee_tree_view" model="ir.ui.view">
+                <field name="name">project.list.per.month.employee.tree.view</field>
+                <field name="model">project.list.per.month.employee</field>
+                <field name="arch" type="xml">
+                    <tree>
+                         <field name="month" />
+                        <field name="op_hours_planned" />
+                        <field name="op_hours_actual" />
+                        <field name="planned_cost" />
+                        <field name="actual_cost" />
+                    </tree>
+                </field>
+            </record>
+            <record id="project_list_per_month_employee_form_view" model="ir.ui.view">
+                <field name="name">project.list.per.month.employee.form.view</field>
+                <field name="model">project.list.per.month.employee</field>
+                <field name="arch" type="xml">
+                    <form string="Project">
+                    <sheet>
+                        <group>
+                            <field name="month" />
+                            <field name="project_code" widget="many2one"/>
+                            <field name="employee_relation" widget="many2one"/>
+                            <field name="op_hours_planned" />
+                            <field name="op_hours_actual" />
+                            <field name="planned_cost" />
+                            <field name="actual_cost" />
+                        </group>
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+    </data>
+</odoo>

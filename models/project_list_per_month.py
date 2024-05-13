@@ -8,6 +8,7 @@ class ProjectsPerMonth(models.Model):
 
     # project_code = fields.One2many('project.master', 'project_assigned_per_month', string='project_code')
     # employee_relation = fields.One2many('project.employee.assign.master', 'employee_project_per_month', string="employee_relation") 
+    
     project_code = fields.Many2one('project.master', string='project_code')
     employee_relation = fields.Many2one('project.employee.assign.master', string="employee_relation") 
     month = fields.Many2one(
@@ -19,16 +20,22 @@ class ProjectsPerMonth(models.Model):
     op_hours_actual = fields.Integer(string='Actual Hours')
     planned_cost = fields.Float(string='planned cost', compute="_compute_cost")
     actual_cost = fields.Float(string='actual cost')
+    project_list_per_month_employee = fields.One2many('project.list.per.month.employee', 'project_list_per_month', string = "Project Employees assigned per month")
 
-    @api.depends('employee_relation')
+    @api.depends('project_list_per_month_employee')
     def _compute_hours(self):
         for records in self:
-            if records.employee_relation:
-                records.op_hours_planned = records.employee_relation.op_hours_planned
-                records.op_hours_actual = records.employee_relation.op_hours_actual
+            if records.projec_code:
+                project_list = self.env['project.list.per.month.employee'].search(
+                    [('project_code', '=', records.project_code)])
+                records.op_hours_planned = sum(project_list.op_hours_planned)
+                records.op_hours_actual = sum(project_list.op_hours_actual)
 
-    @api.depends('employee_relation')
+    @api.depends('project_list_per_month_employee')
     def _compute_cost(self):
         for records in self:
-            records.planned_cost = records.employee_relation.op_hours_planned * records.employee_relation.employee_code.class_code.unit_price
-            records.actual_cost = records.employee_relation.op_hours_actual * records.employee_relation.employee_code.class_code.unit_price
+            if records.project_code:
+                project_list = self.env['project.list.per.month.employee'].search(
+                    [('project_code', '=', records.project_code)])
+                records.planned_cost = sum(project_list.planned_cost)
+                records.actual_cost = sum(project_list.actual_cost)

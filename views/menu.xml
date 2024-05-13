@@ -69,6 +69,13 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_project_list_per_month_employee" model="ir.actions.act_window">
+        <field name="name">Project List per month Employee View</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.list.per.month.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <menuitem
         id="main_menu"
         name="Project Management System"
@@ -127,10 +134,17 @@
         sequence="11"/>
 
     <menuitem name="Test" id="test_menu" parent="main_menu" sequence="12" />
+
     <menuitem id="menu_project_list_per_month"
         name="Project list per month view"
         parent="test_menu"
         action="action_project_list_per_month"
         sequence="13"/>
+
+    <menuitem id="menu_project_list_per_month_employee"
+        name="Project list per month employee view"
+        parent="test_menu"
+        action="action_project_list_per_month_employee"
+        sequence="14"/>
     
 </odoo>
