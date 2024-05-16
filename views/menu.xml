@@ -72,7 +72,7 @@
     <record id="action_project_list_per_month_employee" model="ir.actions.act_window">
         <field name="name">Project List per month Employee View</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">project.list.per.month.employee</field>
+        <field name="res_model">project.list_per_month_employee</field>
         <field name="view_mode">tree,form</field>
     </record>
 

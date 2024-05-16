@@ -20,22 +20,22 @@ class ProjectsPerMonth(models.Model):
     op_hours_actual = fields.Integer(string='Actual Hours')
     planned_cost = fields.Float(string='planned cost', compute="_compute_cost")
     actual_cost = fields.Float(string='actual cost')
-    project_list_per_month_employee = fields.One2many('project.list.per.month.employee', 'project_list_per_month', string = "Project Employees assigned per month")
+    project_list_per_month_employee = fields.One2many('project.list_per_month_employee', 'project_list_per_month', string = "Project Employees assigned per month")
 
     @api.depends('project_list_per_month_employee')
     def _compute_hours(self):
         for records in self:
-            if records.projec_code:
-                project_list = self.env['project.list.per.month.employee'].search(
-                    [('project_code', '=', records.project_code)])
-                records.op_hours_planned = sum(project_list.op_hours_planned)
-                records.op_hours_actual = sum(project_list.op_hours_actual)
+            # if records.project_code:
+            project_list = self.env['project.list_per_month_employee'].search(
+                [('project_code', '=', records.project_code.ids)])
+            records.op_hours_planned = sum([project_list.op_hours_planned])
+            records.op_hours_actual = sum([project_list.op_hours_actual])
 
     @api.depends('project_list_per_month_employee')
     def _compute_cost(self):
         for records in self:
-            if records.project_code:
-                project_list = self.env['project.list.per.month.employee'].search(
-                    [('project_code', '=', records.project_code)])
-                records.planned_cost = sum(project_list.planned_cost)
-                records.actual_cost = sum(project_list.actual_cost)
+            # if records.project_code:
+            project_list = self.env['project.list_per_month_employee'].search(
+                [('project_code', '=', records.project_code.code)])
+            records.planned_cost = sum([project_list.planned_cost])
+            records.actual_cost = sum([project_list.actual_cost])

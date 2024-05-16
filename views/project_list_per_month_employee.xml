@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="project_list_per_month_employee_tree_view" model="ir.ui.view">
-                <field name="name">project.list.per.month.employee.tree.view</field>
-                <field name="model">project.list.per.month.employee</field>
+                <field name="name">project.list_per_month_employee.tree.view</field>
+                <field name="model">project.list_per_month_employee</field>
                 <field name="arch" type="xml">
                     <tree>
                          <field name="month" />
@@ -15,8 +15,8 @@
                 </field>
             </record>
             <record id="project_list_per_month_employee_form_view" model="ir.ui.view">
-                <field name="name">project.list.per.month.employee.form.view</field>
-                <field name="model">project.list.per.month.employee</field>
+                <field name="name">project.list_per_month_employee.form.view</field>
+                <field name="model">project.list_per_month_employee</field>
                 <field name="arch" type="xml">
                     <form string="Project">
                     <sheet>

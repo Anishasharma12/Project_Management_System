@@ -5,4 +5,5 @@
 /.env
 .DS_STORE
 *.pyc
-*__pycache__
+__pycache__
+/models/__pycache__

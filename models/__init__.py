@@ -1,1 +1,10 @@
-from . import employee_master, project_master, employee_class_master, department_master, year_master, month_master,project_employee_assign_master, project_list_view,project_list_per_month
+from . import employee_master
+from . import project_master
+from . import employee_class_master
+from . import department_master
+from . import year_master
+from . import month_master
+from . import project_employee_assign_master
+from . import project_list_view
+from . import project_list_per_month
+from . import project_list_per_month_employee
