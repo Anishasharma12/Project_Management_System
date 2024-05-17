@@ -33,14 +33,7 @@ class ProjectsPerMonth(models.Model):
     @api.depends('project_list_per_month_employee')
     def _compute_cost(self):
         for records in self:
-            # if records.project_code:
-            # project_list = self.env['project.list_per_month_employee'].search(
-            #     [('project_code', '=', records.project_code.code)])
-            # project_list = records.project_list_per_month_employee
-            # records.planned_cost = sum([project_list.planned_cost])
-            # records.actual_cost = sum([project_list.actual_cost])
             project_list = records.project_list_per_month_employee
             
-            # Sum the 'op_hours_planned' and 'op_hours_actual' fields for all related records
             records.planned_cost = sum(project.planned_cost for project in project_list)
             records.actual_cost = sum(project.actual_cost for project in project_list)
