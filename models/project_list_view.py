@@ -55,18 +55,27 @@ class ProjectListView(models.Model):
 
         # view_id = self.env.ref('Project_Management.project_list_per_month_form_view').id
 
-    def action_open_another_model_form(self):
-        return  {
-            'type': 'ir.actions.act_window',
-            'name': _('Project List per Month'),
-            'view_mode': 'tree,form',
-            'res_model': 'project_list_per_month',
-            'res_id': self.id,
-            'domain': [('project_code', '=', self.code)],
-            'target': 'new',
-            'context': {'create': False},
-        }
+    # def action_open_another_model_form(self):
+    #     return  {
+    #         'type': 'ir.actions.act_window',
+    #         'name': _('Project List per Month'),
+    #         'view_mode': 'tree,form',
+    #         'res_model': 'project_list_per_month',
+    #         'res_id': self.id,
+    #         'domain': [('project_code', '=', self.code)],
+    #         'target': 'new',
+    #         'context': {'create': False},
+    #     }
    
+    def action_open_another_model_form(self):
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        url = "{}/web#action={}&id={}&model={}".format(base_url, self.env.ref('project_list_per_month.project_list_per_month_form_view').id, self.id, 'project_list_per_month')
+        return {
+            'type': 'ir.actions.act_url',
+            'name': 'Open Project List per Month',
+            'target': 'new',
+            'url': url,
+        }
     # def action_view_invoice(self):
     #     self.ensure_one()
     #     query = self.env['account.move.line']._search([('move_id.move_type', 'in', self.env['account.move'].get_sale_types())])
