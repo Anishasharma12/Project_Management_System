@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 
 
-class ProjectsPerMonth(models.Model):
+class ProjectsPerMonthEmployee(models.Model):
     _name = 'project.list_per_month_employee'
     _description = 'project per month employee table'
     
@@ -12,7 +12,7 @@ class ProjectsPerMonth(models.Model):
     op_hours_actual = fields.Integer(string='op actual hours')
     planned_cost = fields.Float(string='planned cost', compute="_compute_cost")
     actual_cost = fields.Float(string='actual cost')
-    project_list_per_month = fields.Many2one('project_list_per_month', string = "Project assigend per month") 
+    # project_list_per_month = fields.Many2one('project_list_per_month', string = "Project assigend per month") 
 
     @api.depends('employee_relation')
     def _compute_month(self):
