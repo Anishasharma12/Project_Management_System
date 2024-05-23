@@ -13,49 +13,31 @@ class ProjectListView(models.Model):
     # edit = fields.Char(string=' edit')
     # summery = fields.Char(string='Summery ')
     project_name = fields.Char(string='Name')
-    op_planned_hours = fields.Integer(string='Unit Price', compute='_compute_planned_hours')
-    op_actual_hours = fields.Integer(string='', compute='_compute_actual_hours')
-    planned_cost = fields.Float(string='planned cost',compute='_compute_planned_cost')
-    actual_cost = fields.Float(string='actual cost', compute='_compute_actual_cost')
-
-# this _compute_planned_hours is for function of planned hours
-    @api.depends('code')  # Method depends on these fields
-    def _compute_planned_hours(self):
-        for record in self:
-            record.op_planned_hours = 10
+    op_planned_hours = fields.Integer(string='Planned hours', compute='_compute_hours')
+    op_actual_hours = fields.Integer(string='Actual hours')
+    planned_cost = fields.Float(string='Planned cost',compute='_compute_cost')
+    actual_cost = fields.Float(string='Actual cost')
+    project_list_per_month = fields.Many2many('project_list_per_month', string = "Project assigend per month") 
 
 
-# this _compute_actual_hours is for function of planned hours
-    @api.depends('code')  # Method depends on dthese fields
-    def _compute_actual_hours(self):
-        for record in self:
-            record.op_actual_hours = 10            
-
-# this _compute_actual_hours is for function of planned hours
-    @api.depends('code')  # Method depends on these fields
-    def _compute_planned_cost(self):
-        for record in self:
-            record.planned_cost = 10    
-
-
-
-# this _compute_actual_hours is for function of planned hours
-    @api.depends('code')  # Method depends on these fields
-    def _compute_actual_cost(self):
-        for record in self:
-            record.actual_cost = 10   
-
+    @api.depends('project_list_per_month')
+    def _compute_hours(self):
+        for records in self:
+            project_list = self.env['project_list_per_month'].search([('project_code.code', '=', records.code)])
             
+            records.op_planned_hours = sum(project.op_hours_planned for project in project_list)
+            records.op_actual_hours = sum(project.op_hours_actual for project in project_list)
+      
+    @api.depends('project_list_per_month')
+    def _compute_cost(self):
+        for records in self:
+            project_list = self.env['project_list_per_month'].search([('project_code.code', '=', records.code)])
+            
+            records.planned_cost = sum(project.planned_cost for project in project_list)
+            records.actual_cost = sum(project.actual_cost for project in project_list)
 
-# this _compute_actual_hours is for function of planned hours
-    @api.depends('name')  # Method depends on these fields
-    def _compute_summery(self):
-        for record in self:
-            record.summery = 'summery'   
 
-        # view_id = self.env.ref('Project_Management.project_list_per_month_form_view').id
-
-    def action_open_another_model_form(self):
+    def action_view_summary(self):
         return  {
             'type': 'ir.actions.act_window',
             'name': _('Project List per Month'),
