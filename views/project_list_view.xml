@@ -8,9 +8,10 @@
                 <field name="project_id" />
                 <button name="action_edit" type="object" string="Edit"/>
                 <!-- <field name="summery" widget="url" options="{'url': 'action_open_another_model_form'}"/> -->
-                <button string="Summery" type="object" name="action_view_summary" class="oe_highlight"/>
+                <!-- <button string="Summery" type="object" name="action_open_another_model_form" class="oe_highlight"/> -->
+                <!-- <button name="%(project_list_per_month_id)d" string="summery" type="action" class="btn-primary"/> -->
+                <field name="name" />
                 <field name="code"/> 
-                <field name="name"/> 
                 <field name="op_planned_hours"/> 
                 <field name="op_actual_hours"/> 
                 <field name="planned_cost"/> 
@@ -25,9 +26,9 @@
             <form string="Project">
             <sheet>
                 <group>
-                    <field name="project_id" />           
+                    <field name="project_id" />  
+                    <field name="name" required="1"/>          
                     <field name="code" required="1"/> 
-                    <field name="name" required="1"/> 
                     <field name="op_planned_hours"/> 
                     <field name="op_actual_hours"/> 
                     <field name="planned_cost"/> 
