@@ -21,6 +21,13 @@ class ProjectsPerMonth(models.Model):
     planned_cost = fields.Float(string='planned cost', compute="_compute_cost")
     actual_cost = fields.Float(string='actual cost')
     project_list_per_month_employee = fields.Many2many('project.list_per_month_employee', string = "Project Employees assigned per month")
+    
+    @api.model
+    def render_button_template(self):
+        records = self.search([])
+        return self.env['ir.ui.view']._render_template('project_management.dynamic_button_template', {
+            'docs': records
+        })
 
     @api.depends('project_list_per_month_employee')
     def _compute_hours(self):

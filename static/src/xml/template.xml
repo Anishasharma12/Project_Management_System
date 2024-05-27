@@ -1,0 +1,6 @@
+<template id="hello_world_template">
+    <t t-set="month" t-value="actual_cost"/>
+    <div>
+        <p>Welcome to Odoo 17!</p>
+    </div>
+</template>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <record id="project_list_per_month_employee_id" model="ir.actions.act_window">
+            <field name="name">Open Another Model Form1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="Project_Management.project_list_per_month_employee_tree_view"/>
+            <field name="res_model">project.list_per_month_employee</field>
+            <field name="view_mode">tree</field>
+        </record>
+
         <record id="project_list_per_month_employee_tree_view" model="ir.ui.view">
                 <field name="name">project.list_per_month_employee.tree.view</field>
                 <field name="model">project.list_per_month_employee</field>
@@ -22,8 +31,6 @@
                     <sheet>
                         <group>
                             <field name="month" />
-                            <field name="project_code" widget="many2one"/>
-                            <field name="employee_relation" widget="many2one"/>
                             <field name="op_hours_planned" />
                             <field name="op_hours_actual" />
                             <field name="planned_cost" />

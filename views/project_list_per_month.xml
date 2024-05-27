@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- <record id="project_list_per_month_id" model="ir.actions.act_window">
+        <record id="project_list_per_month_id" model="ir.actions.act_window">
             <field name="name">Open Another Model Form</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="target">new</field>
+            <field name="target">current</field>
+            <field name="view_id"/>
             <field name="res_model">project_list_per_month</field>
             <field name="view_mode">tree,form</field>
-        </record> -->
+            <field name="context">{'create': True}</field>
+            
+        </record>
 
         <record id="project_list_per_month_tree_view" model="ir.ui.view">
                 <field name="name">project_list_per_month.tree.view</field>
                 <field name="model">project_list_per_month</field>
                 <field name="arch" type="xml">
+
                     <tree>
-                         <field name="month" />
+                        <button name="%(month_id)d" string="summery" type="action" class="btn-primary"/>
+
+                        <field name="month" />
                         <field name="op_hours_planned" />
                         <field name="op_hours_actual" />
                         <field name="planned_cost" />

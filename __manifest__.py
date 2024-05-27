@@ -17,5 +17,17 @@
         "views/project_employee_assign_master.xml",
         "views/project_list_view.xml",
         "views/project_list_per_month.xml",
+        "views/project_list_per_month_per_employee.xml",
+        # "views/template.xml",
+
+
     ],
+        'assets': {
+        'web.assets_backend': [
+            # 'Project_Management/static/src/js/my_custom_script.js',
+        ],
+        'web.assets_qweb': [
+            'Project_Management/static/src/xml/template.xml',
+        ],
+    },
 }

@@ -11,7 +11,7 @@ class ProjectListView(models.Model):
     name = fields.Char(related='project_id.name', string='Project Name')
     code = fields.Integer(related='project_id.code', string='Project Code')
     # edit = fields.Char(string=' edit')
-    # summery = fields.Char(string='Summery ')
+    summery = fields.Char(string='Summery ', compute="_compute_summery")
     project_name = fields.Char(string='Name')
     op_planned_hours = fields.Integer(string='Unit Price', compute='_compute_planned_hours')
     op_actual_hours = fields.Integer(string='', compute='_compute_actual_hours')
