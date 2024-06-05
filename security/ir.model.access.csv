@@ -8,8 +8,8 @@ month_master,master_master,model_month_master,base.group_user,1,1,1,1
 access_project_employee_assign_master,project.employee.assign.master,model_project_employee_assign_master,base.group_user,1,1,1,1
 access_wb_project_listview,wb.project_listview,model_wb_project_listview,base.group_user,1,1,1,1
 access_project_list_per_month,project_list_per_month,model_project_list_per_month,base.group_user,1,1,1,1
-access_project_list_per_month_employee, project_list_per_month_employee,model_project_list_per_month_employee,base.group_user,1,1,1,1
 access_project_list_per_month_per_employee, project_list_per_month_per_employee,model_project_list_per_month_per_employee,base.group_user,1,1,1,1
+access_employee_assign_per_month, employee_assign_per_month,model_employee_assign_per_month,base.group_user,1,1,1,1
 
 
 

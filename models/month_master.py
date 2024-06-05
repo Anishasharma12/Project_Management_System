@@ -20,3 +20,7 @@ class MonthMaster(models.Model):
         unique=True
     )
     order = fields.Integer(string='Order', required=True)
+
+    _sql_constraints = [
+        ('month_unique', 'UNIQUE(month)', "The month must be unique across all ,onth record"),
+    ]

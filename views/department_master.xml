@@ -18,7 +18,6 @@
       </form>
     </field>
   </record>
-
   <record id="view_department_master_tree" model="ir.ui.view">
     <field name="name">department.master.tree</field>
     <field name="model">department.master</field>

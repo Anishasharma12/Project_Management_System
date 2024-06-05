@@ -75,12 +75,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_project_list_per_month_employee" model="ir.actions.act_window">
+    <!-- <record id="action_project_list_per_month_employee" model="ir.actions.act_window">
         <field name="name">Project List per month Employee View</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">project.list_per_month_employee</field>
         <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
     <menuitem
         id="main_menu"
@@ -153,10 +153,10 @@
         action="action_project_list_per_month"
         sequence="13"/>
 
-    <menuitem id="menu_project_list_per_month_employee"
+    <!-- <menuitem id="menu_project_list_per_month_employee"
         name="Project list per month employee view"
         parent="test_menu"
         action="action_project_list_per_month_employee"
-        sequence="14"/>
+        sequence="14"/> -->
     
 </odoo>

@@ -18,8 +18,8 @@
         "views/project_list_view.xml",
         "views/project_list_per_month.xml",
         "views/project_list_per_month_per_employee.xml",
-        # "views/template.xml",
-
+        "views/employee_assign_per_month.xml",
+        # "data/employee_assign_per_month_actions.xml",
 
     ],
         'assets': {
@@ -27,7 +27,7 @@
             # 'Project_Management/static/src/js/my_custom_script.js',
         ],
         'web.assets_qweb': [
-            'Project_Management/static/src/xml/template.xml',
+            # 'Project_Management/static/src/xml/template.xml',
         ],
     },
 }

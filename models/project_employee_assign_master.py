@@ -3,6 +3,7 @@ from odoo import models, fields
 class ProjectEmployeeAssignMaster(models.Model):
     _name = 'project.employee.assign.master'
     _description = 'Project Employee Assign Master'
+    _rec_name = 'employee_code'
 
     id = fields.Integer("id")
     project_code = fields.Many2one(
