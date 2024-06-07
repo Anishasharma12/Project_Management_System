@@ -5,7 +5,7 @@
         <field name="model">wb.project_listview</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="project_id" /> 
+                <!-- <field name="project_id" />  -->
                 <button name="%(project_list_per_month_id)d" string="summery" type="action" class="btn-primary"
                 context="{'default_project_id': active_id}"/>
                 <field name="name" /> 

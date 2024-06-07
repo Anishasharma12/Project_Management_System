@@ -21,6 +21,7 @@
         "views/employee_assign_per_month.xml",
         # "data/employee_assign_per_month_actions.xml",
 
+
     ],
         'assets': {
         'web.assets_backend': [
@@ -29,5 +30,7 @@
         'web.assets_qweb': [
             # 'Project_Management/static/src/xml/template.xml',
         ],
+        'pre_init_hook': 'migrate',
+
     },
 }

@@ -9,13 +9,17 @@ class ProjectListView(models.Model):
  # Assuming the project.master has fields 'name' and 'code'
     project_id = fields.Many2one('project.master', string='Project')
     name = fields.Char(related='project_id.name', string='Project Name')
-    code = fields.Integer(related='project_id.code', string='Project Code')
+    code = fields.Integer(related='project_id.code', string='Project Code', store=True, readonly=False)
     op_planned_hours = fields.Float(string='Planned Hours', compute='_compute_op_planned_hours')
     op_actual_hours = fields.Float(string='Actual Hours', compute='_compute_op_actual_hours')
     planned_cost = fields.Float(string='planned cost', compute='op_planned_cost')
     actual_cost = fields.Float(string='Actual cost', compute='op_actual_cost')
-    project_list_per_month = fields.Many2many('project_list_per_month', string = "Project assigend per month") 
+    # project_list_per_month = fields.Many2many('project_list_per_month', string = "Project assigend per month") 
     project_month_ids = fields.One2many('project_list_per_month', 'project_id', string='Project Months')
+
+    _sql_constraints = [
+        ('code_unique', 'unique(code)', 'The project name must be unique in the list view!')
+    ]
 
    #  showing total planned hours which is taken from project_list_per_month model
     @api.depends('project_month_ids.op_planned_hours')
@@ -52,4 +56,6 @@ class ProjectListView(models.Model):
     def _compute_summery(self):
         for record in self:
             record.summery = 'summery'   
+
+
 

@@ -10,6 +10,8 @@ class ProjectsPerMonthPerEmployee(models.Model):
 
 # yo aagadi ko bata lyauna ko lage
     month_id = fields.Many2one('project_list_per_month', string='Monthly Project')
+    project_id = fields.Many2one(related='month_id.project_id', string='Project id')
+
    
 #    
     employees_assign = fields.Many2one('project.employee.assign.master', string='Employee')

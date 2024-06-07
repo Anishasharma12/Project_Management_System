@@ -17,9 +17,10 @@
                 <field name="arch" type="xml">
                     <tree>
                         <field name="month_id" />
-                        <!-- <field name="project_id" invisible="1" colspan="0"/> -->
+                         <!-- <field name="project_id" invisible="1"/> -->
                         <button name="%(month_id)d" string="Month" type="action" class="btn-primary"
                         context="{'default_month_id': active_id}"/>
+                        <!-- <field name="month_button" widget="html"/> -->
                         <field name="op_planned_hours" />    
                         <field name="op_actual_hours" />
                         <field name="planned_cost" />
@@ -36,6 +37,7 @@
                         <group>
                          <field name="project_id" invisible="1"/>
                             <field name="month_id" />
+                            <!-- <field name="month_value"/> -->
                             <field name="op_planned_hours" />    
                             <field name="op_actual_hours" />
                             <field name="planned_cost" />

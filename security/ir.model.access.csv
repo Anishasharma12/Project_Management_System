@@ -10,7 +10,7 @@ access_wb_project_listview,wb.project_listview,model_wb_project_listview,base.gr
 access_project_list_per_month,project_list_per_month,model_project_list_per_month,base.group_user,1,1,1,1
 access_project_list_per_month_per_employee, project_list_per_month_per_employee,model_project_list_per_month_per_employee,base.group_user,1,1,1,1
 access_employee_assign_per_month, employee_assign_per_month,model_employee_assign_per_month,base.group_user,1,1,1,1
-
+access_employee_assign_per_month_line,access.employee.assign.per.month.line,model_employee_assign_per_month_line,base.group_user,1,1,1,1
 
 
 
