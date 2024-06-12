@@ -28,12 +28,7 @@
         <field name="res_model">month.master</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <record id="action_bb_submenu" model="ir.actions.act_window">
-        <field name="name">bbb</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">project_list_per_month_per_employee</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+
 
     <record id="action_project_master_submenu" model="ir.actions.act_window">
         <field name="name">Project Master</field>
@@ -132,12 +127,6 @@
         parent="master_menu"
         action="action_month_master_submenu"
         sequence="10"/>
-        
-    <menuitem id="bb_submenu"
-        name="bbb"
-        parent="master_menu"
-        action="action_bb_submenu"
-        sequence="15"/>
 
     <menuitem id="project_employee_assign_master"
         name="Project Employee Assign master"
@@ -145,18 +134,6 @@
         action="action_project_employee_assign_master"
         sequence="11"/>
 
-    <menuitem name="Test" id="test_menu" parent="main_menu" sequence="12" />
 
-    <menuitem id="menu_project_list_per_month"
-        name="Project list per month view"
-        parent="test_menu"
-        action="action_project_list_per_month"
-        sequence="13"/>
-
-    <!-- <menuitem id="menu_project_list_per_month_employee"
-        name="Project list per month employee view"
-        parent="test_menu"
-        action="action_project_list_per_month_employee"
-        sequence="14"/> -->
     
 </odoo>

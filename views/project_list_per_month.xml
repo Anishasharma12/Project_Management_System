@@ -16,7 +16,7 @@
                 <field name="model">project_list_per_month</field>
                 <field name="arch" type="xml">
                     <tree>
-                        <field name="month_id" />
+                        <field name="month_id"  />
                         <!-- <field name="project_id" invisible="1" colspan="0"/> -->
                         <button name="%(month_id)d" string="Month" type="action" class="btn-primary"
                         context="{'default_month_id': active_id}"/>

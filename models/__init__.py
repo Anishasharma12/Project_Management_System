@@ -10,3 +10,6 @@ from . import project_list_per_month
 # from . import project_list_per_month_employee
 from . import project_list_per_month_per_employees
 from . import employee_assign_per_month
+from . import project_assign_per_month
+from . import employee_assign_per_month_line
+from . import project_assign_per_month_line

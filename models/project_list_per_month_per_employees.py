@@ -13,7 +13,7 @@ class ProjectsPerMonthPerEmployee(models.Model):
    
 #    
     employees_assign = fields.Many2one('project.employee.assign.master', string='Employee')
-    employee_code = fields.Many2one(related='employees_assign.employee_code', string='Employee code')
+    employee_code = fields.Many2one(related='employees_assign.employee_code', string='Employee code', required=True, store=True, readonly=False)
     employee_name = fields.Char(related='employee_code.name', string='Employee Name')
 
     # taking for unit price
@@ -30,7 +30,9 @@ class ProjectsPerMonthPerEmployee(models.Model):
     # employee_master_id = fields.One2many('employee.master', string='Project Months')
 
 
-
+    _sql_constraints = [
+    ('unique_month_employee', 'unique(month_id, employee_code)', 'The month must be unique per project.')
+    ]
 
 
 # yo next page bata details lyauna ko lage model rakheko
@@ -61,3 +63,9 @@ class ProjectsPerMonthPerEmployee(models.Model):
             record.actual_cost =  record.employee_class_unit_price * record.op_actual_hours
 
 
+    # This migrate function is to manage primary key for the employee
+    def migrate(cr, version):
+        cr.execute("""
+        ALTER TABLE project_list_per_month_per_employee DROP CONSTRAINT IF EXISTS project_list_per_month_per_employee_unique_employee_code;
+        ALTER TABLE project_list_per_month_per_employee ADD CONSTRAINT unique_project_month UNIQUE (month_id, employee_code);
+        """)

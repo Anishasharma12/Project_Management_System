@@ -8,6 +8,8 @@
                 <field name="project_id" /> 
                 <button name="%(project_list_per_month_id)d" string="summery" type="action" class="btn-primary"
                 context="{'default_project_id': active_id}"/>
+                <button name="%(project_assign_per_month_id)d" string="edit" type="action" class="btn-primary"
+                context="{'default_project_id': active_id}"/>
                 <field name="name" /> 
                 <field name="code" />     
                 <field name="op_planned_hours" />    

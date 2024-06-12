@@ -12,6 +12,8 @@ class YearMaster(models.Model):
     default_flag = fields.Boolean(string='Default Flag', default=False)
     delete_flag = fields.Boolean(string='Delete Flag', default=False)
     
+
+    # showing year between 1900 to current year + 5
     @api.constrains('year')
     def _check_year(self):
         current_year = datetime.now().year 

@@ -17,9 +17,9 @@ class EmployeeAssignPerMonth(models.Model):
     projects = fields.Char(related='take_project_code.name', string='Project name')
 
     # taking project name
-    project_id = fields.Many2Many('project.master', string='Project')
-    name = fields.Char(related='project_id.name', string='Project Name')
-    code = fields.Integer(related='project_id.code', string='Project Code')
+    employee_id = fields.Many2many('employee.master', string='Project')
+    name = fields.Char(related='employee_id.name', string='Project Name')
+    code = fields.Integer(related='employee_id.code', string='Project Code')
 
     month = fields.Many2one(
         'month.master',
@@ -39,12 +39,15 @@ class EmployeeAssignPerMonth(models.Model):
     month_01 = fields.Integer(string='01')
     month_02 = fields.Integer(string='02')
     month_03 = fields.Integer(string='03')
+
+    total = fields.Integer(string='Project Code')
+    line_ids = fields.One2many('employee_assign_per_month_line', 'assign_per_month_id', string='Assignments')
+
     
     
 
     @api.model
     def add_item(self):
-        # Define the logic to add a new item
         new_item = self.create({
             'name': 'New Project',
             'month_04': 0,
@@ -61,3 +64,12 @@ class EmployeeAssignPerMonth(models.Model):
             'month_03': 0,
         })
         return new_item
+    
+
+    def action_add_item(self):
+        self.env['employee_assign_per_month_line'].create({
+        'assign_per_month_id': self.id,
+        'employee_name': 'New Project',
+            # Add other default values as needed
+        })
+        return True

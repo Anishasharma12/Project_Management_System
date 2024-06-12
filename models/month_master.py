@@ -9,9 +9,14 @@ class MonthMaster(models.Model):
 
 
     id = fields.Integer("id")
+
+    # this _get_months function is to get month names in numbers like 01, 02, 03 
     def _get_months(self):
         month_list = [(str(num), str(num)) for num in range(1, 13)]
         return month_list
+    
+
+    
     month = fields.Selection(
         selection=_get_months,
         string='Month',

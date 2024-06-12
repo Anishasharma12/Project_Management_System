@@ -1,30 +1,38 @@
 odoo.define('Project_Management.my_custom_script', function (require) {
     "use strict";
 
-    // var ListRenderer = require('web.ListRenderer');
+    var fieldRegistry = require('web.field_registry');
+    var FieldMany2one = require('web.relational_fields').FieldMany2one;
 
-    // ListRenderer.include({
-    //     events: _.extend({}, ListRenderer.prototype.events, {
-    //         'click .o_data_row .custom-clickable': '_onItemClicked',
-    //     }),
+    var ClickableMonthField = FieldMany2one.extend({
+        events: _.extend({}, FieldMany2one.prototype.events, {
+            'click': '_onClick',
+        }),
 
-    //     _onItemClicked: function (event) {
-    //         console.log('Item clicked');
-    //         event.preventDefault();
-    //         event.stopPropagation();
+        _onClick: function (event) {
+            event.preventDefault();
+            var self = this;
+            this._rpc({
+                model: 'project_list_per_month',
+                method: 'search_read',
+                domain: [['id', '=', this.res_id]],
+                fields: ['month_id'],
+            }).then(function (result) {
+                if (result.length > 0) {
+                    var month_id = result[0].month_id[0];
+                    var action = {
+                        type: 'ir.actions.act_window',
+                        name: 'Project List Per Month Per Employee',
+                        res_model: 'project_list_per_month_per_employee',
+                        view_mode: 'tree,form',
+                        domain: [['month_id', '=', month_id]],
+                        target: 'current',
+                    };
+                    self.do_action(action);
+                }
+            });
+        },
+    });
 
-    //         var $item = $(event.currentTarget);
-    //         var $row = $item.closest('tr.o_data_row');
-    //         var recordId = $row.data('id');
-
-    //         console.log('Record ID:', recordId);
-
-    //         if (recordId) {
-    //             var url = '/web#id=' + recordId + '&view_type=form&model=wb.project_listview&menu_id=123&action=456';
-    //             console.log('Navigating to URL:', url);
-    //             window.location.href = url;
-    //         }
-    //     },
-    // });
-
+    fieldRegistry.add('clickable_month', ClickableMonthField);
 });
