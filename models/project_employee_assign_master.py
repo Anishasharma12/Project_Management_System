@@ -4,6 +4,7 @@ class ProjectEmployeeAssignMaster(models.Model):
     _name = 'project.employee.assign.master'
     _description = 'Project Employee Assign Master'
     _rec_name = 'employee_code'
+    _rec_name = 'project_code'
 
     id = fields.Integer("id")
     project_code = fields.Many2one(

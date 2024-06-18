@@ -11,8 +11,11 @@ class MonthMaster(models.Model):
     id = fields.Integer("id")
 
     # this _get_months function is to get month names in numbers like 01, 02, 03 
+    @api.model
     def _get_months(self):
-        month_list = [(str(num), str(num)) for num in range(1, 13)]
+        # Define the custom order for the months
+        months_order = ['04', '05', '06', '07', '08', '09', '10', '11', '12', '01', '02', '03']
+        month_list = [(month, month) for month in months_order]
         return month_list
     
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-        <record id="month_id_2" model="ir.actions.act_window">
+  <record id="month_id_2" model="ir.actions.act_window">
             <field name="name">Open Another Model Form</field>
             <field name="type">ir.actions.act_window</field>
             <field name="target">current</field>

@@ -24,12 +24,18 @@
     ],
         'assets': {
         'web.assets_backend': [
-            # 'Project_Management/static/src/js/my_custom_script.js',
+            'Project_Management/static/src/js/my_custom_script.js',
+            # 'Project_Management/static/src/scss/style.scss',
+
         ],
         'web.assets_qweb': [
             # 'Project_Management/static/src/xml/template.xml',
         ],
         'pre_init_hook': 'migrate',
+        'web.assets_frontend': [
+            'Project_Management/static/src/scss/style.scss'
+        ]
+
 
     },
 }

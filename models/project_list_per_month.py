@@ -11,7 +11,9 @@ class ProjectsPerMonth(models.Model):
 
 
     id = fields.Integer("id")
-    project_id = fields.Many2one('wb.project_listview', string='Project', required=True,)
+    project_id = fields.Many2one('wb.project_listview', string='Project', required=True)
+    code = fields.Integer(related='project_id.code', string='Project Code')
+
     month_id = fields.Many2one(
         'month.master',
         string="Month",
@@ -26,6 +28,7 @@ class ProjectsPerMonth(models.Model):
     actual_cost = fields.Float(string='actual cost',  compute="_compute_op_actual_cost")
 
     project_list_per_month_ids = fields.One2many('project_list_per_month_per_employee', 'month_id', string='Project Months')
+    # employee_assign_ids = fields.One2many('employee_assign_per_month_line', string='Employee Assignments')
 
 
     _sql_constraints = [

@@ -8,10 +8,8 @@ class ProjectsPerMonthPerEmployee(models.Model):
     # project_code = fields.Many2one('project.master', string='project_code')
     # employee_relation = fields.Many2one('project.employee.assign.master', string="employee_relation") 
 
-# yo aagadi ko bata lyauna ko lage
     month_id = fields.Many2one('project_list_per_month', string='Monthly Project')
    
-#    
     employees_assign = fields.Many2one('project.employee.assign.master', string='Employee')
     employee_code = fields.Many2one(related='employees_assign.employee_code', string='Employee code', required=True, store=True, readonly=False)
     employee_name = fields.Char(related='employee_code.name', string='Employee Name')
@@ -35,18 +33,17 @@ class ProjectsPerMonthPerEmployee(models.Model):
     ]
 
 
-# yo next page bata details lyauna ko lage model rakheko
     employee_assign_per_month_ids = fields.One2many('employee_assign_per_month', 'employees_assign', string='Project Months')
 
 
     #    showing total planned hours which is taken from project_list_per_month model
-    @api.depends('employee_assign_per_month_ids.month')
+    @api.depends('employee_assign_per_month_ids')
     def _compute_op_planned_hours(self):
         for record in self:
             record.op_planned_hours = 5
 
     #  showing total planned hours which is taken from project_list_per_month model
-    @api.depends('employee_assign_per_month_ids.month')
+    @api.depends('employee_assign_per_month_ids')
     def _compute_op_actual_hours(self):
         for record in self:
             record.op_actual_hours = 6

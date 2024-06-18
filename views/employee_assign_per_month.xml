@@ -13,28 +13,6 @@
             >{'default_employees_assign': active_id}</field>
             <field name="domain">[('employees_assign', '=', active_id)]</field>
         </record>
-        <!-- <record id="employee_assign_per_month_tree_view" model="ir.ui.view">
-                <field name="name">Employee_assign_per_month.tree.view</field>
-                <field name="model">employee_assign_per_month</field>
-                <field name="arch" type="xml">
-                    <tree >
-                            <field name="name" />
-                            <field name="month_04"/>
-                            <field name="month_05"/>
-                            <field name="month_06"/>
-                            <field name="month_07"/>
-                            <field name="month_08"/>
-                            <field name="month_09"/>
-                            <field name="month_10"/>
-                            <field name="month_11"/>
-                            <field name="month_12"/>
-                            <field name="month_01"/>
-                            <field name="month_02"/>
-                            <field name="month_03"/>
-                            <field name="total" nolabel="1"/>
-                    </tree>
-                </field>
-            </record> -->
             <record
             id="employee_assign_per_month_id_form_view"
             model="ir.ui.view">
@@ -42,17 +20,14 @@
                 <field name="model">employee_assign_per_month</field>
                 <field name="arch" type="xml">
                      <form string="Employee Assign Per Month">
-                        <sheet>
-                            <group>
-                                <field
-                                name="employee_id"
-                                widget="many2many_tags"
-                            />
-                            </group>
+                        <sheet> 
                             <group>
                                 <field name="line_ids">
-                                    <tree string="Employee Assign per month">
-                                        <field name="name" />
+                                    <tree string="Employee Assign per month" editable="bottom">
+                                        <field name="project_employee_assign_id" />
+                                        <field name="project_assign_code" />
+                                        <field name="project_name" />
+                                        <field name="planning_hours" />
                                         <field name="month_04" />
                                         <field name="month_05" />
                                         <field name="month_06" />
@@ -68,16 +43,20 @@
                                     </tree>
                                 </field>
                             </group>
-                            <!-- Button outside of the tree view to ensure it doesn't repeat -->
-                            <footer>
-                                <button
-                                name="action_add_item"
-                                string="Add Item"
-                                type="object"
-                                class="btn btn-primary"
-                                icon="fa-plus"
-                            />
-                            </footer>
+                            <group string="Totals">
+                                    <field name="month_04_total" readonly="1"/>
+                                    <field name="month_05_total" readonly="1"/>
+                                    <field name="month_06_total" readonly="1"/>
+                                    <field name="month_07_total" readonly="1"/>
+                                    <field name="month_08_total" readonly="1"/>
+                                    <field name="month_09_total" readonly="1"/>
+                                    <field name="month_10_total" readonly="1"/>
+                                    <field name="month_11_total" readonly="1"/>
+                                    <field name="month_12_total" readonly="1"/>
+                                    <field name="month_01_total" readonly="1"/>
+                                    <field name="month_02_total" readonly="1"/>
+                                    <field name="month_03_total" readonly="1"/>
+                            </group>
                     </sheet>
                     </form>
                 </field>

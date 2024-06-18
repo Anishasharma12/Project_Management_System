@@ -10,3 +10,25 @@
 {
     background-color: blue($color: #000000);
 }
+
+
+
+.horizontal-fields .o_group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    background-color: red($color: #d24450);
+}
+
+.horizontal-fields .o_group .o_field_widget {
+    margin-right: 10px;
+    flex: 0 0 auto;
+}
+
+@media (min-width: 576px) {
+    .o_form_view .o_inner_group {
+        display: flex !important;
+        grid-template-columns: fit-content(150px) 1fr;
+        background-color: red($color: #000000);
+        /* flex-wrap: wrap; */
+    }
+}

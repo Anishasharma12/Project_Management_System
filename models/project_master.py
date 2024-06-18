@@ -12,7 +12,9 @@ class ProjectMaster(models.Model):
     description = fields.Text(string='Description', required=True)
 
     project_assigned_per_month = fields.Many2one('project_list_per_month', string='Project assigned per month')
-    employee_assign_ids = fields.Many2many('employee_assign_per_month', string='Employee Assignments')
+    # employee_assign_ids = fields.Many2many('employee_assign_per_month', string='Employee Assignments')
+    model_name = fields.Char('Model Name')  # This field should store the related model name
+
 
 
     # Code should be unique , so here defining code is unique using sql constrain
