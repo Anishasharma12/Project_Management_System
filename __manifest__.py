@@ -24,7 +24,7 @@
     ],
         'assets': {
         'web.assets_backend': [
-            'Project_Management/static/src/js/my_custom_script.js',
+            # 'Project_Management/static/src/js/my_custom_script.js',
             # 'Project_Management/static/src/scss/style.scss',
 
         ],

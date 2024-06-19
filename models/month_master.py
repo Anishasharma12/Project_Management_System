@@ -27,6 +27,7 @@ class MonthMaster(models.Model):
         index=True,
         unique=True
     )
+ 
     order = fields.Integer(string='Order', required=True)
 
     _sql_constraints = [

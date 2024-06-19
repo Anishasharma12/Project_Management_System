@@ -29,6 +29,9 @@ class ProjectEmployeeAssignMaster(models.Model):
         string="Month",
         help="Select month"
     )
+    month_code = fields.Selection(related='month.month')
+
+
     employee_project_per_month = fields.Many2one('project_list_per_month', string="project employee assigned to per month")
     op_hours_planned=fields.Integer("OP hours Planned")
     op_hours_actual=fields.Integer("OP hours Actual")
