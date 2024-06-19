@@ -76,7 +76,7 @@ class EmployeeAssignPerMonthLine(models.Model):
 
             assignment = self.env['project.employee.assign.master'].search([
                 ('project_code', '=', project_code),
-                ('month', '=', month)
+                ('month_code', '=', month)
             ], limit=1)
 
             if assignment:
@@ -88,7 +88,7 @@ class EmployeeAssignPerMonthLine(models.Model):
 
 
 # not solved using compute method
-    @api.depends('code')
+    @api.depends('project_id')
     def _compute_months(self):
         for record in self:
             if not record.code:

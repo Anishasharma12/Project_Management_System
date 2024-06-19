@@ -24,10 +24,9 @@
                             <group>
                                 <field name="line_ids">
                                     <tree string="Employee Assign per month" editable="bottom">
-                                        <field name="project_employee_assign_id" />
-                                        <field name="project_assign_code" />
-                                        <field name="project_name" />
-                                        <field name="planning_hours" />
+                                        <field name="project_id" />
+                                        <field name="name" />
+                                        <field name="code" />
                                         <field name="month_04" />
                                         <field name="month_05" />
                                         <field name="month_06" />
