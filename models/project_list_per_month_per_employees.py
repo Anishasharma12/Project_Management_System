@@ -18,6 +18,10 @@ class ProjectsPerMonthPerEmployee(models.Model):
     employee_class_code = fields.Many2one(related='employee_code.class_code', string='Employee code')
     employee_class_unit_price =  fields.Float(related='employee_class_code.unit_price', string='Employee code')
 
+    # taking planned hours and actual hours 
+    planned_hours = fields.Integer(related='employees_assign.op_hours_planned', string='planned hours')
+
+
 
     op_planned_hours = fields.Integer(string='Planned Hours', compute="_compute_op_planned_hours")
     op_actual_hours = fields.Integer(string='Actual Hours', compute="_compute_op_actual_hours")
@@ -40,7 +44,7 @@ class ProjectsPerMonthPerEmployee(models.Model):
     @api.depends('employee_assign_per_month_ids')
     def _compute_op_planned_hours(self):
         for record in self:
-            record.op_planned_hours = 5
+            record.op_planned_hours = record.planned_hours
 
     #  showing total planned hours which is taken from project_list_per_month model
     @api.depends('employee_assign_per_month_ids')

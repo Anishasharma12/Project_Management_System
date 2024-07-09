@@ -6,7 +6,7 @@ class EmployeeAssignPerMonthLine(models.Model):
 
     employee_id = fields.Many2one('employee.master', string='Employee')
     name = fields.Char(related='employee_id.name', string='Employee Name' ,readonly=False)
-    code = fields.Integer(related='employee_id.code', string='Employee Code')
+    code = fields.Char(related='employee_id.code', string='Employee Code')
        
     month_04 = fields.Integer(string='04', store=True,)
     month_05 = fields.Integer(string='05', store=True,)

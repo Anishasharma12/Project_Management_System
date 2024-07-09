@@ -22,7 +22,7 @@
     <field name="name">year.master.tree</field>
     <field name="model">year.master</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree string="Year Master" default_order="order asc">
         <field name="year"/>
         <field name="order"/>
         <field name="default_flag"/>

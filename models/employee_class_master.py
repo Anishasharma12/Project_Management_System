@@ -7,7 +7,7 @@ class EmployeeClassMaster(models.Model):
     _description = 'Employee Class Master Table'
     _rec_name = 'code'
         
-    code = fields.Integer(string='Code', required=True, index=True, unique=True, help='Code must be Unique')
+    code = fields.Char(string='Code', required=True, index=True, unique=True, help='Code must be Unique')
     name = fields.Char(string='Name', required=True)
     unit_price = fields.Float(string='Unit Price', required=True)
     delete_flag = fields.Boolean(string='Delete Flag', default=False)

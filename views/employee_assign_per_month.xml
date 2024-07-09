@@ -26,7 +26,7 @@
                                     <tree string="Employee Assign per month" editable="bottom">
                                         <field name="project_id" />
                                         <field name="name" />
-                                        <field name="code" />
+                                        <!-- <field name="code" /> -->
                                         <field name="month_04" />
                                         <field name="month_05" />
                                         <field name="month_06" />

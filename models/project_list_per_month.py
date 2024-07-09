@@ -12,7 +12,7 @@ class ProjectsPerMonth(models.Model):
 
     id = fields.Integer("id")
     project_id = fields.Many2one('wb.project_listview', string='Project', required=True)
-    code = fields.Integer(related='project_id.code', string='Project Code')
+    code = fields.Char(related='project_id.code', string='Project Code')
 
     month_id = fields.Many2one(
         'month.master',

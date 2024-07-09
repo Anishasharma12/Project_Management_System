@@ -24,7 +24,7 @@
             <form string="Project">
             <sheet>
                 <group>
-                <field name="id" />           
+                <!-- <field name="id" />            -->
                 <field name="project_code" required="1" options="{'no_create': True, 'no_create_edit': True}"/> 
                 <field name="employee_code" required="1" options="{'no_create': True, 'no_create_edit': True}"/> 
                 <field name="year" widget="selection" options="{'no_open': True}"/>

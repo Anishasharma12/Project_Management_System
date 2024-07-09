@@ -23,7 +23,7 @@
     <field name="name">project.master.tree</field>
     <field name="model">project.master</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree string="Project Master" default_order="order desc">
         <field name="code"/>
         <field name="name"/>
         <!-- <field name="code"/> -->

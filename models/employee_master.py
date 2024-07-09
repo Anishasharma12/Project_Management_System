@@ -6,7 +6,7 @@ class EmployeeMaster(models.Model):
     _description = 'Employee Master Table'
     _rec_name = 'code' 
 
-    code = fields.Integer(string='Code', required=True, index=True, unique=True , help='Code must be Unique')
+    code = fields.Char(string='Code', required=True, index=True, unique=True , help='Code must be Unique')
     name = fields.Char(string='Name', required=True)
 
     # Many2one relationships
@@ -20,3 +20,9 @@ class EmployeeMaster(models.Model):
     _sql_constraints = [
         ('code_unique', 'UNIQUE(code)', "The code must be unique across all employee master records."),
     ]
+
+    # @api.constrains('code')
+    # def _check_code(self):
+    #     for record in self:
+    #         if not record.code.isdigit():
+    #             raise ValidationError('Code must be numeric.')

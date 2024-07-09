@@ -21,7 +21,7 @@
     <field name="name">department.master.tree</field>
     <field name="model">department.master</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree string="Department Master" default_order="order desc">
         <field name="code" />
         <field name="name" />
         <field name="order" />

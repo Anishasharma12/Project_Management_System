@@ -5,11 +5,11 @@ class ProjectMaster(models.Model):
     _description = "Project Master Table"
     _rec_name = 'code'  # Set the representative field to 'code'
 
-    code = fields.Integer(string='Code', required=True, index=True, unique=True, help='Code must be Unique')
+    code = fields.Char(string='Code', required=True, index=True, unique=True, help='Code must be Unique')
     name = fields.Char(string='Name', required=True)
     order = fields.Integer(string='Order', required=True)
     delete_flag = fields.Boolean(string='Delete Flag', default=False)
-    description = fields.Text(string='Description', required=True)
+    description = fields.Text(string='Description')
 
     project_assigned_per_month = fields.Many2one('project_list_per_month', string='Project assigned per month')
     # employee_assign_ids = fields.Many2many('employee_assign_per_month', string='Employee Assignments')

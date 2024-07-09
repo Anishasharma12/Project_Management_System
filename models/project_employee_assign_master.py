@@ -12,6 +12,7 @@ class ProjectEmployeeAssignMaster(models.Model):
         string="Project Code",
         help="Select project"
     )
+    project_code_i = fields.Char(related='project_code.code')
 
     employee_code = fields.Many2one(
         'employee.master',
