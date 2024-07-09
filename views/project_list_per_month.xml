@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="project_list_per_month_id" model="ir.actions.act_window">
+        <!-- <record id="project_list_per_month_id" model="ir.actions.act_window">
             <field name="name">Showing Project List Per Month</field>
             <field name="type">ir.actions.act_window</field>
             <field name="target">current</field>
@@ -10,7 +10,7 @@
             <field name="view_mode">tree,form</field>
             <field name="context">{'default_project_id': active_id}</field>
             <field name="domain">[('project_id', '=', active_id)]</field>
-        </record>
+        </record> -->
         <record id="project_list_per_month_tree_view" model="ir.ui.view">
                 <field name="name">project_list_per_month.tree.view</field>
                 <field name="model">project_list_per_month</field>

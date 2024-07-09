@@ -63,19 +63,62 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_project_list_per_month" model="ir.actions.act_window">
+    <!-- <record id="action_project_list_per_month" model="ir.actions.act_window">
         <field name="name">Project List per month View</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">project_list_per_month</field>
         <field name="view_mode">tree,form</field>
+    </record> -->
+
+    <!-- project_list_per_month_id -->
+    <record id="project_list_per_month_id" model="ir.actions.act_window">
+        <field name="name">Showing Project List Per Month</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="target">current</field>
+        <field name="view_id"/>
+        <field name="res_model">project_list_per_month</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_project_id': active_id}</field>
+        <field name="domain">[('project_id', '=', active_id)]</field>
     </record>
 
-    <!-- <record id="action_project_list_per_month_employee" model="ir.actions.act_window">
-        <field name="name">Project List per month Employee View</field>
+    <!-- project_assign_per_month_id -->
+    <record id="project_assign_per_month_id" model="ir.actions.act_window">
+        <field name="name">Showing Project Assign Per Month</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">project.list_per_month_employee</field>
+        <field name="target">current</field>
+        <field name="view_id"/>
+        <field name="res_model">project_assign_per_month</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_project_id': active_id}</field>
+        <field name="domain">[('project_id', '=', active_id)]</field>
+    </record>
+
+    <!-- month_id -->
+    <record id="month_id" model="ir.actions.act_window">
+        <field name="name">Project list per month employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="target">current</field>
+        <field name="view_id" />
+        <field name="res_model">project_list_per_month_per_employee</field>
         <field name="view_mode">tree,form</field>
-    </record> -->
+        <field name="context">{'default_month_id': active_id}</field>
+        <field name="domain">[('month_id', '=', active_id)]</field>
+    </record>
+
+    <!-- employee_assign_per_month_id -->
+    <record id="employee_assign_per_month_id" model="ir.actions.act_window">
+        <field name="name">employee assign per month view</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="target">current</field>
+        <field name="view_id" />
+        <field name="res_model">employee_assign_per_month</field>
+        <field name="view_mode">form</field>
+        <field
+            name="context"
+        >{'default_employees_assign': active_id}</field>
+        <field name="domain">[('employees_assign', '=', active_id)]</field>
+    </record>
 
     <menuitem
         id="main_menu"

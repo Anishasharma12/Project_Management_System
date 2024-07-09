@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record id="employee_assign_per_month_id" model="ir.actions.act_window">
-            <field name="name">employee assign per month view</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="target">current</field>
-            <field name="view_id" />
-            <field name="res_model">employee_assign_per_month</field>
-            <field name="view_mode">form</field>
-            <field
-                name="context"
-            >{'default_employees_assign': active_id}</field>
-            <field name="domain">[('employees_assign', '=', active_id)]</field>
-        </record>
             <record
             id="employee_assign_per_month_id_form_view"
             model="ir.ui.view">
